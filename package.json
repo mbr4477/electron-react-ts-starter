@@ -14,7 +14,7 @@
         "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.server.js",
         "start:dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --config webpack.config.server.js\" \"wait-on http://localhost:9000 && electron .\"",
         "server": "npm run build:dev && npm run start:dev",
-        "dist": "build"
+        "dist": "npm run build && build"
     },
     "devDependencies": {
         "@babel/core": "^7.4.5",

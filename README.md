@@ -41,6 +41,7 @@ The `package.json` file contains the following sections beyond the basic `name`,
     - `build:dev`: Build the webpack script with the server (dev) config. Note that because `NODE_ENV` was set to `development`, the compiled Electron main process script (built from `electron.ts`) will load the `https://localhost:9000` URL
     - `start:dev`: Start the `webpack-dev-server` (which enables hot compiling and reloading of the Electron renderer code), wait for the web server to come up, and then kick off Electron.
     - `server`: Run the `build:dev` and `start:dev` scripts. This makes sure that the Electron main process file is re-built before the webpack dev server is booted up.
+    - `dist`: Build and package the app for distribution
 - `main`: This is where we tell Electron our app's main Electron Javascript file. In our case, we want to point this at the compiled file that the Typescript compiler generates. In `webpack.config.base.js` we set this location and filename so the output will be `./dist/main/main.js`.
 - `devDependencies`: Here we list all the dependencies we need for compiling and developing our app.
     - `@babel/core`: Core Babel package
@@ -55,6 +56,7 @@ The `package.json` file contains the following sections beyond the basic `name`,
     - `cross-env`: Another utility that lets us set environment variables in a cross-platform way (note that I'm using version 5.1.6 since the latest version seems to be broken on Windows)
     - `css-loader`: A CSS file loader for webpack
     - `electron`: The Electron library
+    - `electron-builder`: Package for generating OS distributions
     - `html-webpack-plugin`: A plugin that will auto-generate our `index.html` file for us
     - `react-hot-loader`: Package to enable hot reloading of our React app
     - `style-loader`: A loader that will take the CSS resolved by `css-loader` and pack it into our webpack output
@@ -66,6 +68,15 @@ The `package.json` file contains the following sections beyond the basic `name`,
 - `dependencies`: Here we list all of our app's runtime dependencies.
     - `react`: Use React components
     - `react-dom`: Use the ReactDOM to render our root React component into the page
+- `build`: Package building configuration for `electron-builder`
+    - `appId`: App identifier
+    - `directories`
+        - `buildResources`: Where `electron-builder` should look for resources like icons
+        - `output`: Where `electron-builder` should put the packaged output
+    - `dmg`: Configuration for `dmg` package
+      - `contents`: Specify the location of content and links in the DMG window
+    - `linux`: Configuration for Linux packaging (untested)
+    - `win`: Configuration for NSIS Windows installer (untested)
 
 ### `tsconfig.json`
 The `tsconfig.json` file defines configuration data for Typescript.
