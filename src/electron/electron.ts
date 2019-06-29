@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
 import * as path from 'path';
 
 // declare a variable to hold the browser window
@@ -28,6 +28,33 @@ function createWindow() {
         // so we can do hot reloading, and show the the dev tools
         win.loadURL('http://localhost:9000');
         win.webContents.openDevTools();
+    }
+
+    // use different menus for macos and window/linux
+    if (process.platform === 'darwin') {
+        Menu.setApplicationMenu(Menu.buildFromTemplate([
+            {
+                label: "EaRTH",
+                submenu: [
+                    {
+                        label: "Quit EaRTH",
+                        role: "quit"
+                    }
+                ]
+            }
+        ]));
+    } else {
+        Menu.setApplicationMenu(Menu.buildFromTemplate([
+            {
+                label: "File",
+                submenu: [
+                    {
+                        label: "Close",
+                        role: "quit"
+                    }
+                ]
+            }
+        ]));
     }
 
     // dereference our window when it closes

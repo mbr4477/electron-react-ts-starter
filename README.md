@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/mbr4477/electron-react-ts-starter.svg?branch=master)](https://travis-ci.com/mbr4477/electron-react-ts-starter)
-# Electron, React, & Typescript with Hot Reloading <!-- omit in toc -->
+# Electron, React, & Typescript with Hot Reloading (EaRTH) <!-- omit in toc -->
 After picking through endless boilerplates and getting started guides with varying levels of success, I decided to build this repo as a working, low-overhead (not quite minimal) example with detailed documentation explain *why* we need each component, not just a copy-paste solution.
 
 ## Table of Contents <!-- omit in toc -->
