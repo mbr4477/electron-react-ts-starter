@@ -1,0 +1,44 @@
+{
+    "name": "electron-react-ts-starter",
+    "version": "0.1.0",
+    "description": "A simple Electron, React, Typescript, hot-reloading app with detailed documentation.",
+    "author": {
+        "name": "Matthew Russell",
+        "email": "mbr4477@gmail.com",
+        "url": "https://mruss.dev"
+    },
+    "main": "./dist/main/main.js",
+    "scripts": {
+        "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
+        "start": "electron .",
+        "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.server.js",
+        "start:dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --config webpack.config.server.js\" \"wait-on http://localhost:9000 && electron .\"",
+        "server": "npm run build:dev && npm run start:dev"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.5",
+        "@babel/polyfill": "^7.4.4",
+        "@babel/preset-env": "^7.4.5",
+        "@babel/preset-react": "^7.0.0",
+        "@babel/preset-typescript": "^7.3.3",
+        "@types/react": "^16.8.22",
+        "@types/react-dom": "^16.8.4",
+        "babel-loader": "^8.0.6",
+        "concurrently": "^4.1.1",
+        "cross-env": "~5.1.6",
+        "css-loader": "^3.0.0",
+        "electron": "^5.0.6",
+        "html-webpack-plugin": "^3.2.0",
+        "react-hot-loader": "^4.11.1",
+        "style-loader": "^0.23.1",
+        "typescript": "^3.5.2",
+        "wait-on": "^3.2.0",
+        "webpack": "^4.35.0",
+        "webpack-cli": "^3.3.5",
+        "webpack-dev-server": "^3.7.2"
+    },
+    "dependencies": {
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    }
+}
