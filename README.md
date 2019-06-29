@@ -51,7 +51,7 @@ The `package.json` file contains the following sections beyond the basic `name`,
     - `@types/react-dom`: Import the Typescript type definitions for `react-dom`
     - `babel-loader`: Import the Babel loader to use with webpack
     - `concurrently`: Handy package we use in the scripts to start the dev server and simultaneously kick off Electron
-    - `cross-env`: Another utility that lets us set environment variables in a cross-platform way
+    - `cross-env`: Another utility that lets us set environment variables in a cross-platform way (note that I'm using version 5.1.6 since the latest version seems to be broken on Windows)
     - `css-loader`: A CSS file loader for webpack
     - `electron`: The Electron library
     - `html-webpack-plugin`: A plugin that will auto-generate our `index.html` file for us
